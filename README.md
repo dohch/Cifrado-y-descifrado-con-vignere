@@ -1,35 +1,24 @@
-# 🛡️ Cifrador por Trasposición de Ruta Pro
+# Vigenère 37 - Cifrador Moderno con Alfabeto Extendido 🔐
 
-Un software de criptografía clásica desarrollado en Python que implementa el **Algoritmo de Trasposición por Ruta**. El programa permite transformar mensajes legibles en criptogramas complejos mediante la reordenación geométrica de sus caracteres.
+Este es un codificador y decodificador basado en el **Cifrado de Vigenère**, adaptado específicamente para el idioma español y entornos modernos. A diferencia del algoritmo tradicional de 26 caracteres, este sistema utiliza un alfabeto extendido de **37 elementos**.
 
-## 📖 Sobre el Proyecto
+## 🚀 Características Principales
 
-Este proyecto no es solo un procesador de texto; es una implementación fiel de la **Trasposición Geométrica**. A diferencia de los cifrados de sustitución, este sistema mantiene la identidad de los caracteres pero altera su posición basándose en una matriz bidimensional y un patrón de lectura específico.
+- **Alfabeto Extendido (37 caracteres):** Incluye la letra `Ñ` y los números del `0-9`.
+- **Normalización Estricta:** - Convierte todo automáticamente a MAYÚSCULAS.
+    - Elimina tildes (Á -> A, etc.).
+    - Remueve espacios y caracteres especiales para máxima seguridad criptográfica.
+- **Interfaz Moderna:** Desarrollada con `CustomTkinter` para un diseño oscuro, intuitivo y profesional.
+- **Gestión Rápida:** Botones dedicados para Copiar, Pegar y Eliminar en cada campo.
 
-### 🧠 Bases Teóricas
-El cifrado se fundamenta en la **difusión**. Al escribir el mensaje en filas y extraerlo mediante rutas complejas (como espirales o diagonales), se rompe la relación de vecindad entre las letras, dificultando el criptoanálisis estadístico.
+## 🧮 Lógica del Algoritmo
 
-## 🚀 Características y Reglas de Cifrado
+El sistema asigna un índice numérico a cada carácter:
+`A=0, B=1, ..., N=13, Ñ=14, O=15, ..., Z=26, 0=27, 1=28, ..., 9=36`
 
-El software aplica estrictamente las siguientes reglas de normalización antes de procesar cualquier mensaje:
+### Fórmulas Matemáticas
+- **Cifrado:** $C_i = (M_i + K_i) \pmod{37}$
+- **Descifrado:** $M_i = (C_i - K_i + 37) \pmod{37}$
 
-* **Todo a Mayúsculas:** Estandarización para evitar pistas gramaticales.
-* **Limpieza de Símbolos:** Se eliminan espacios, puntos, comas y signos de exclamación.
-* **Gestión de Tildes:** Se eliminan las tildes (Á -> A), pero se **conserva la Ñ** como carácter único.
-* **Preservación de Números:** Los dígitos del 0 al 9 se mantienen y ocupan su lugar en la matriz.
-* **Padding (Relleno):** Uso del carácter **'X'** para completar matrices imperfectas.
-
-## 🛠️ Rutas de Lectura Disponibles
-
-El sistema cuenta con **8 modos de trasposición**:
-
-1.  **Columnas (Abajo):** Lectura vertical estándar.
-2.  **Columnas (Arriba):** Lectura vertical invertida.
-3.  **Filas (Izq-Der):** Lectura lineal (sin trasposición real).
-4.  **Filas (Der-Izq):** Lectura horizontal invertida.
-5.  **Zigzag / Serpentina:** Cambio de dirección en cada fila (estilo Boustrophedon).
-6.  **Espiral (Horario):** Recorrido concéntrico hacia el centro.
-7.  **Espiral (Anti-horario):** Recorrido concéntrico inverso.
-8.  **Diagonal:** Lectura transversal de la matriz.
-
+*Donde $M$ es el mensaje y $K$ es la clave.*
 
