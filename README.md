@@ -32,13 +32,4 @@ El sistema cuenta con **8 modos de trasposición**:
 7.  **Espiral (Anti-horario):** Recorrido concéntrico inverso.
 8.  **Diagonal:** Lectura transversal de la matriz.
 
-## 💻 Instalación y Uso
 
-### Requisitos
-* Python 3.x
-* Librería `customtkinter` (para la interfaz moderna)
-
-### Instalación
-1. Clona este repositorio:
-   ```bash
-   git clone [https://github.com/tu-usuario/nombre-repo.git](https://github.com/tu-usuario/nombre-repo.git)
